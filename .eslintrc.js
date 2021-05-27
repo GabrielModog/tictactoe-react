@@ -1,13 +1,14 @@
 module.exports = {
 	root: true,
 	parser: "@typescript-eslint/parser",
-	plugins: ["react", "react-native"],
+	plugins: ["react"],
 	extends: [
 		"eslint:recommended",
 		"plugin:@typescript-eslint/recommended",
 		"plugin:react/recommended",
 		"plugin:react-hooks/recommended",
 		"plugin:prettier/recommended",
+		"prettier",
 	],
 	rules: {
 		"react/display-name": "off",
