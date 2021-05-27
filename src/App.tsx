@@ -12,6 +12,7 @@ function App() {
 	return (
 		<ThemeProvider theme={themeMode}>
 			<GlobalStyles />
+
 			<div className="App">
 				<button type="button" onClick={() => themeToggler()}>
 					{theme === "light" ? "Light Mode" : "Dark Mode"}

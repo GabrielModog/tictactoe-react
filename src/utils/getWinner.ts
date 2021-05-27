@@ -12,5 +12,17 @@ const goals: Array<Array<number>> = [
 ];
 
 export default function getWinner(squares: Array<any>): string {
-	return squares[0].toString();
+	const winner = goals.reduce(
+		(accum: any, curr: any, index, array: typeof goals) => {
+			const [a, b, c] = array[index];
+
+			if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c])
+				return accum + squares[a];
+
+			return accum;
+		},
+		"",
+	);
+
+	return winner !== "" ? winner : "";
 }
