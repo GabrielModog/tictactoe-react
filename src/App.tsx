@@ -1,4 +1,6 @@
 import { ThemeProvider } from "styled-components";
+import Board from "./components/board";
+import Button from "./components/shared/button";
 
 import useTheme from "./hooks/useTheme";
 import { GlobalStyles } from "./utils/globalStyles";
@@ -12,11 +14,11 @@ function App() {
 	return (
 		<ThemeProvider theme={themeMode}>
 			<GlobalStyles />
-
 			<div className="App">
-				<button type="button" onClick={() => themeToggler()}>
+				<Button type="button" onClick={() => themeToggler()}>
 					{theme === "light" ? "Light Mode" : "Dark Mode"}
-				</button>
+				</Button>
+				<Board />
 			</div>
 		</ThemeProvider>
 	);
