@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ICheckers } from "./checker";
+import { ICheckers } from "../checker";
 
 export interface IBoard {
 	status: string | boolean | null;
