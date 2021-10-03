@@ -13,6 +13,7 @@ export const Container = styled.button`
 	cursor: pointer;
 	border: none;
 	background-color: white;
+	color: ${(props) => props.theme.text};
 `;
 
 export const Item = styled.div``;
