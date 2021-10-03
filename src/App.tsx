@@ -6,6 +6,8 @@ import useTheme from "./hooks/useTheme";
 import { GlobalStyles } from "./utils/globalStyles";
 import { darkTheme, lightTheme } from "./utils/theme";
 
+import Game from "./components/game";
+
 function App() {
 	const [theme, themeToggler] = useTheme();
 
@@ -18,7 +20,7 @@ function App() {
 				<Button type="button" onClick={() => themeToggler()}>
 					{theme === "light" ? "Light Mode" : "Dark Mode"}
 				</Button>
-				<Board />
+				<Game />
 			</div>
 		</ThemeProvider>
 	);

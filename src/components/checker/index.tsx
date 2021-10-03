@@ -1,16 +1,21 @@
 import React from "react";
 
-import { Container, Item } from "./style";
+import { Container, Item } from "./styles";
 
-export interface ICheckers {
-	onClick: void;
-	status: boolean | string | null;
+export interface CheckersProps {
+	identifier: string;
+	onClick: any;
+	status?: boolean | string | null;
 	value: any;
 }
 
-export default function Checker({ value, status, onClick }: ICheckers) {
+export default function Checker({
+	value = "Item",
+	status,
+	onClick,
+}: CheckersProps) {
 	return (
-		<Container>
+		<Container type="button" onClick={onClick}>
 			<Item>{value}</Item>
 		</Container>
 	);
