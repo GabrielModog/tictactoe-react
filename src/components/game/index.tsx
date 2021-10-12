@@ -8,7 +8,15 @@ import Button from "../shared/button";
 import GameOver from "../gameover";
 
 export default function Game() {
-	const { winner, board, handleCheckerOnClick } = useGame();
+	const {
+		winner,
+		board,
+		hasPast,
+		hasFuture,
+		handleUndo,
+		handleRedo,
+		handleCheckerOnClick,
+	} = useGame();
 
 	if (winner) {
 		return <GameOver winner={winner} />;
@@ -21,8 +29,12 @@ export default function Game() {
 				checkers={board}
 				whenClick={handleCheckerOnClick}
 			/>
-			<Button disabled>Undo</Button>
-			<Button>Redo</Button>
+			<Button onClick={handleUndo} disabled={!hasPast}>
+				Undo
+			</Button>
+			<Button onClick={handleRedo} disabled={!hasFuture}>
+				Redo
+			</Button>
 		</React.Fragment>
 	);
 }
