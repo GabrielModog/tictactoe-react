@@ -3,29 +3,26 @@ import React, { useMemo, useState } from "react";
 
 import Board from "../board";
 import getWinner from "../../utils/getWinner";
+import useGame from "../../hooks/useGame";
+import Button from "../shared/button";
+import GameOver from "../gameover";
 
 export default function Game() {
-	const [board, setBoard] = useState(Array(9).fill(null));
-	const [whoIsNext, setWhoIsNext] = useState<boolean>(true);
-	const [configPlayers, setConfigPlayers] = useState<Array<React.ReactNode>>([
-		"X",
-		"O",
-	]);
+	const { winner, board, handleCheckerOnClick } = useGame();
 
-	const winner = useMemo(() => getWinner(board), [board]);
-
-	function handleCheckerOnClick(currentIndex: number) {
-		const copyOfBoard = [...board];
-
-		if (winner || copyOfBoard[currentIndex]) return;
-
-		copyOfBoard[currentIndex] = whoIsNext ? configPlayers[0] : configPlayers[1];
-		setBoard(copyOfBoard);
-		setWhoIsNext((isNext) => !isNext);
+	if (winner) {
+		return <GameOver winner={winner} />;
 	}
-	console.log(winner);
 
 	return (
-		<Board status={winner} checkers={board} whenClick={handleCheckerOnClick} />
+		<React.Fragment>
+			<Board
+				status={winner}
+				checkers={board}
+				whenClick={handleCheckerOnClick}
+			/>
+			<Button disabled>Undo</Button>
+			<Button>Redo</Button>
+		</React.Fragment>
 	);
 }
