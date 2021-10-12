@@ -24,12 +24,18 @@ export function GameProvider({ children }: any) {
 		setWhoIsNext((isNext) => !isNext);
 	}
 
+	function resetGame() {
+		setBoard(Array(9).fill(null));
+		setWhoIsNext(true);
+	}
+
 	const settings: any = {
 		board,
 		whoIsNext,
 		configPlayers,
 		winner,
 		handleCheckerOnClick,
+		resetGame,
 	};
 
 	return (

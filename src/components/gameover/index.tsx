@@ -1,6 +1,7 @@
 import React from "react";
 import OCheckerIcon from "../../assets/o-checker";
 import XCheckerIcon from "../../assets/x-chercker";
+import useGame from "../../hooks/useGame";
 import Button from "../shared/button";
 import { Container, Title, WinnerContainer } from "./styles";
 
@@ -9,6 +10,7 @@ export interface GameOverProps {
 }
 
 export default function GameOver({ winner }: GameOverProps) {
+	const { resetGame } = useGame();
 	return (
 		<Container>
 			<WinnerContainer>
@@ -16,7 +18,9 @@ export default function GameOver({ winner }: GameOverProps) {
 				{winner === "O" ? <OCheckerIcon /> : null}
 				<Title>Wins</Title>
 			</WinnerContainer>
-			<Button>Play Again</Button>
+			<Button type="button" onClick={resetGame}>
+				Play Again
+			</Button>
 		</Container>
 	);
 }
