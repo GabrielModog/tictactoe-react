@@ -16,7 +16,7 @@ export default function GameOver({ winner }: GameOverProps) {
 			<WinnerContainer>
 				{winner === "X" ? <XCheckerIcon /> : null}
 				{winner === "O" ? <OCheckerIcon /> : null}
-				<Title>Wins</Title>
+				<Title>WINS</Title>
 			</WinnerContainer>
 			<Button type="button" onClick={resetGame}>
 				Play Again
